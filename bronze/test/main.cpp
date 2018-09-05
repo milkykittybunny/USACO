@@ -3,15 +3,36 @@
 using namespace std;
 
 int main() {
-    ifstream fIn("test.in");
-    ofstream fOut("test.out");
+    vector<int> myvector;
 
-    // solution comes here
-    int n;
-    fIn >> n;
+    for (int i = 1; i <= 3; i++) {
+        myvector.push_back(i);
+    }
 
-    fOut << n;
+    //vector iteration
+    for (auto it = myvector.begin(); it != myvector.end(); it++) {
+        cout << *it;
+    }
+    cout << endl;
+    // vector reverse iteration
+    for (auto it = myvector.rbegin(); it != myvector.rend(); it++) {
+        cout << *it;
+    }
+    cout << endl;
 
-    fIn.close();
-    fOut.close();
+    // vector insertion
+    myvector.insert(myvector.begin() + 2, 4);
+    for (auto it = myvector.begin(); it != myvector.end(); it++) {
+        cout << *it;
+    }
+    cout << endl;
+    myvector.erase(myvector.begin() + 2);
+    for (auto it = myvector.begin(); it != myvector.end(); it++) {
+        cout << *it;
+    }
+    cout << endl;
+
+    // vector search find
+    auto it = find(myvector.begin(), myvector.end(), 2);
+    cout << it - myvector.begin();
 }

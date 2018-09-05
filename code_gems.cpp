@@ -36,26 +36,38 @@ v.push_back(2); // [3,2]
 cout << v.size();
 vector<int> v.resize(10);
 
-//vector insert
-std::vector<int>::iterator it;
-for (int i=1; i<=3; i++) myvector.push_back(i);
-myvector.insert (myvector.begin() + 2 , 200 );
+vector<int> myvector;
 
-//vector erase
-std::vector<int> myvector;
-// set some values (from 1 to 10)
-for (int i=1; i<=10; i++) myvector.push_back(i);
-// erase the 6th element
-myvector.erase (myvector.begin()+5);
-// erase the first 3 elements:
-myvector.erase (myvector.begin(),myvector.begin()+3);
+for (int i = 1; i <= 3; i++) {
+    myvector.push_back(i);
+}
 
 //vector iteration
-for (auto it = myvector.begin() ; it != myvector.end(); ++it)
-  cout << ' ' << *it;
-//vector reverse iteration
-for (auto rit = myvector.rbegin() ; rit != myvector.rend(); ++rit)
-  cout << ' ' << *rit;
+for (auto it = myvector.begin(); it != myvector.end(); it++) {
+    cout << *it;
+}
+cout << endl;
+// vector reverse iteration
+for (auto it = myvector.rbegin(); it != myvector.rend(); it++) {
+    cout << *it;
+}
+cout << endl;
+
+// vector insertion
+myvector.insert(myvector.begin() + 2, 4);
+for (auto it = myvector.begin(); it != myvector.end(); it++) {
+    cout << *it;
+}
+cout << endl;
+myvector.erase(myvector.begin() + 2);
+for (auto it = myvector.begin(); it != myvector.end(); it++) {
+            cout << *it;
+}
+cout << endl;
+
+// vector search find
+auto it = find(myvector.begin(), myvector.end(), 2);
+cout << it - myvector.begin();
 
 
 
