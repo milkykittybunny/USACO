@@ -74,9 +74,12 @@ cout << it - myvector.begin();
 
 //set
 set<int> s;
+// set initialize
 set<int> s{2,5,6,8};
+// set insert
 s.insert(3);
 s.insert(2);
+// set erase, find size
 s.erase(3);
 s.size()
 
@@ -106,8 +109,13 @@ m["monkey"] = 4;
 m["banana"] = 3;
 m["harpsichord"] = 9;
 
-if (m.count("aybabtu")) {
-   // key exists
+// map search for keys
+if (m.count("aybabtu") == 0) {
+   // key does not exist
+}
+else {
+  // key exists
+  m["aybabtu"] = 43770;
 }
 
 //map iterate
@@ -118,7 +126,7 @@ for (auto x : m) {
 //sort vector , list
 sort(v.begin(), v.end());
 
-//reverse
+//reverse sort
 reverse(v.begin(), v.end());
 
 //random shuffle
