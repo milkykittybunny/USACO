@@ -8,16 +8,16 @@ git push -u origin master
 
 */
 
-//standard C++ STL header files
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <list>
-#include <map>
-#include <set>
-#include <algorithm>
+//use this standard C++ template for all codes
 
+#include <bits/stdc++.h>
 using namespace std;
+
+int main() {
+  // solution comes here
+
+}
+
 
 //STL examples
 //vector
