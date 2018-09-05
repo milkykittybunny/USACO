@@ -1,6 +1,7 @@
-//this file contains the code which can be copy+paste  to speed up C++ developement for USACO
+/*
+git commands to upload code to github after finishing a new question
 
-/*git commands to upload code to github after finishing a new question
+cd USACO
 
 git add .
 git commit -m "added a new solution!"
