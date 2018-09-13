@@ -17,7 +17,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         fIn >> testcases[i].first >> testcases[i].second;
     }
- 
+
     for (int i = 0; i < n; i++) {
         int onebase = 10, twobase = 10;
         int one = base_changer(testcases[i].first, onebase);
