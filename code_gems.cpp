@@ -100,7 +100,12 @@ if(!s.empty())
 else
     //the set is empty
 
-
+//set join
+set<int> bessietimes;
+set<int> elsietimes;
+vector<int> common_data;
+set_intersection(bessietimes.begin(),bessietimes.end(),
+   elsietimes.begin(),elsietimes.end(), back_inserter(common_data));
 
 
 //std::map<key, value> map;
@@ -131,3 +136,24 @@ reverse(v.begin(), v.end());
 
 //random shuffle
 random_shuffle(v.begin(), v.end());
+
+
+//bit operation
+//get the position 1 or 0 value of an integer
+int get_bit(int n, int pos) {
+    return (n & (1 << pos)) >> pos;
+}
+
+
+//generate complete set using binary representation
+//0, 1, 2, .... power(number-1)
+for (int binnum = 0; binnum < pow(2, number-1); binnum++) {
+  for(int i = 0; i < number -2; i++) {
+        if(get_bit(binnum, i) == 1) {
+             //bit i is 1
+        else {
+	     //bit i is 0
+        }
+  }
+}
+
