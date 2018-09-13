@@ -25,28 +25,21 @@ int main() {
     set<int> bessietimes;
     set<int> elsietimes;
     for (int binnum = 0; binnum < total; binnum++) {
-        int lastStopC = 1, lastStopD = 1, ctime = 0, dtime = 0;
+        int lastStop = 1 , ctime = 0,  dtime = 0;
         for (int i = 0; i < n - 2; i++) {
             if (get_bit(binnum, i) == 1) {
-                if (bessie[lastStopC][i+2] != 0) {
-                    ctime += bessie[lastStopC][i+2];
-                    lastStopC = i+2;
-                }
-
-                if (elsie[lastStopD][i+2] != 0) {
-                    dtime += elsie[lastStopD][i+2];
-                    lastStopD = i+2;
+                if (bessie[lastStop][i+2] != 0) {
+                    ctime += bessie[lastStop][i+2];
+                    dtime += elsie[lastStop][i+2];
+                    lastStop = i+2;
                 }
             }
         }
 
-        if (bessie[lastStopC][n] != 0) {
-            ctime += bessie[lastStopC][n];
+        if (bessie[lastStop][n] != 0) {
+            ctime += bessie[lastStop][n];
             bessietimes.insert(ctime);
-        }
-
-        if (elsie[lastStopD][n] != 0) {
-            dtime += elsie[lastStopD][n];
+            dtime += elsie[lastStop][n];
             elsietimes.insert(dtime);
         }
     }
