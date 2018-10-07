@@ -157,3 +157,9 @@ for (int binnum = 0; binnum < pow(2, number-1); binnum++) {
   }
 }
 
+
+//string operation
+//substring made from last few N chars
+string sub = originString.substr(N); //substring from N to end
+//erase last few N chars from string
+string out = originString.erase(originString.end() - N, originString.end()); 
