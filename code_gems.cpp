@@ -27,6 +27,10 @@ int main() {
     fOut.close();
 }
 
+//2D array using vector
+vector<vector<char> > gBoard;
+fIn >> gR >> gC;
+gBoard.resize(gC, vector<char>(gR));
 
 //STL examples
 //vector
