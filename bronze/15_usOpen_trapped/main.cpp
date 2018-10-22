@@ -12,7 +12,6 @@ bool less_than(bale a, bale b) {
 }
 
 
-
 bool checker(vector<bale> &bales, int left, int right) {
     int change = true;
     while (right < bales.size() && left >= 0 && change) {
