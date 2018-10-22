@@ -172,3 +172,14 @@ for (int binnum = 0; binnum < pow(2, number-1); binnum++) {
 string sub = originString.substr(N); //substring from N to end
 //erase last few N chars from string
 string out = originString.erase(originString.end() - N, originString.end()); 
+
+
+bool palindrome(string input) {
+    int len = input.size();
+    for (int i = 0; i < len/2; i++) {
+        if (input[i] != input[len - i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
