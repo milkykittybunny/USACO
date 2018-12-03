@@ -1,0 +1,170 @@
+**********************************************************************
+                           BRONZE PROBLEMS
+**********************************************************************
+                  Three problems numbered 11 through 13
+**********************************************************************
+
+Problem 11: Book Club [Rob Kolstad, 2010]
+
+Bessie is looking for cows to join her book club. While the herd
+has N (2 <= N <= 50,000) cows conveniently numbered 1..N, she wants
+only the most discerning and social cows for her book club.
+
+Thus, like a dating service, she has created a questionnaire and
+asked each of the N cows to complete its NQ (1 <= NQ <= 50) questions
+(named R_1..R_NQ). These are questions like "How much do you enjoy
+reading science fiction?" and each answer is an integer in the range
+1..5.
+
+Your job is to tabulate the questionnaire's results and answer a
+simple question like: "How many cows answered 2 to question 3, 4
+to question 7, and also 1 to question 8?"  The question has P parts
+(1 <= P <= 10), and each part has Qj (1 <= Qj <= NQ) and Aj (1 <=
+Aj <= 5), respectively the question number and the required answer.
+Your program prints a single integer that is the total number of
+cows that answered Aj to Qj for j in the range 1..P.
+
+Consider a small herd of just 4 cows and a small questionnaire of
+just 5 questions; the responses are:
+
+Cow     Question
+ ID   1  2  3  4  5
+ 1    1  1  1  1  1
+ 2    1  2  3  4  5
+ 3    1  2  1  2  3
+ 4    2  1  1  2  2
+
+If the tabulation question was "How many cows answered 2 to question
+1 and 1 to question 2?" the answer would be 1 (just cow #4). If the
+tabulation question was "How many cows answered 1 to question 1 and
+1 to question 3?" the answer would be 2 (cows 1 and 3).
+
+PROBLEM NAME: bookclub
+
+INPUT FORMAT:
+
+* Line 1: Three space-separated integers: N, NQ, and P
+
+* Lines 2..N+1: Line i+1 contains NQ space-separated integers that are
+        the response to the questions for cow i: R_1..R_NQ
+
+* Lines N+2..N+1+P: Line j+N+1 contains two space-separated integers:
+        Qj and Aj
+
+SAMPLE INPUT (file bookclub.in):
+
+4 5 2
+1 1 1 1 1
+1 2 3 4 5
+1 2 1 2 3
+2 1 1 2 2
+1 1
+3 1
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer that is the number of cows that meet all of
+        Bessie's criteria
+
+SAMPLE OUTPUT (file bookclub.out):
+
+2
+
+**********************************************************************
+
+Problem 12: Bad Random Numbers [Richard V. Andree, 1965]
+
+Bessie is trying to generate random numbers. She stumbled upon an
+old reference to the 'middle square' method for making numbers that
+appear to be random. It works like this:
+
+        * Pick a starting four digit number (1 <= N <= 9999)
+
+        * Extract its middle two digits (the hundreds and tens digit)
+          as a number
+
+        * Compute the square of those two digits
+
+    * That square is the 'random number' and becomes the new
+      starting number
+
+Here's a sample:
+
+                Num  Middle  Square
+               7339    33     1089
+               1089     8       64
+                 64     6       36
+                 36     3        9
+                  9     0        0
+                  0     0        0
+
+The 'pigeon hole principle' tells us that the random numbers surely
+must repeat after no more than 10,000 of them -- and the sequence
+above repeats after just six numbers (the next number and all
+subsequent numbers are 0).
+
+Note that some sequences repeat in a more complex way; this one
+alternates back and forth between 576 and 3249:
+
+                Num  Middle  Square
+                2245   24      576  
+                 576   57     3249 
+                3249   24      576  
+
+Your job is to tell Bessie the count of 'random numbers' that can
+be generated from a starting number before the sequence repeats
+a previously seen number. In the first case above, the answer is
+'6'. In the 'alternating' case, the answer is '3'.
+
+PROBLEM NAME: badrand
+
+INPUT FORMAT:
+
+* Line 1: A single integer: N
+
+SAMPLE INPUT (file badrand.in):
+
+7339
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer that is the count of iterations through the
+        middle square random number generator before a previous value
+        is repeated
+
+SAMPLE OUTPUT (file badrand.out):
+
+6
+
+**********************************************************************
+
+Problem 13: Adding Commas [Traditional, 2010]
+
+Bessie is working with large numbers N (1 <= N <= 2,000,000,000) 
+like 153920529 and realizes that the numbers would be a lot easier
+to read with commas inserted every three digits (as is normally     
+done in the USA; some countries prefer to use periods every three
+digits). Thus, she would like to add commas: 153,920,529 .  Please
+write a program that does this.
+
+PROBLEM NAME: commas
+
+INPUT FORMAT:
+
+* Line 1: A single integer: N
+
+SAMPLE INPUT (file commas.in):
+
+153920529
+
+OUTPUT FORMAT:
+
+* Line 1: The integer N with commas inserted before each set of three
+        digits except the first digits (as traditionally done in many
+        cultures)
+
+SAMPLE OUTPUT (file commas.out):
+
+153,920,529
+
+**********************************************************************
