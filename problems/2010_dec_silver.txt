@@ -1,0 +1,202 @@
+**********************************************************************
+                           SILVER PROBLEMS
+**********************************************************************
+                  Three problems numbered 6 through 8
+**********************************************************************
+
+Problem 6: Apple Delivery [Rob Kolstad, 2010]
+
+Bessie has two crisp red apples to deliver to two of her friends
+in the herd. Of course, she travels the C (1 <= C <= 200,000)
+cowpaths which are arranged as the usual graph which connects P (1
+<= P <= 100,000) pastures conveniently numbered from 1..P: no cowpath
+leads from a pasture to itself, cowpaths are bidirectional, each
+cowpath has an associated distance, and, best of all, it is always
+possible to get from any pasture to any other pasture. Each cowpath
+connects two differing pastures P1_i (1 <= P1_i <= P) and P2_i (1
+<= P2_i <= P) with a distance between them of D_i. The sum of all
+the distances D_i does not exceed 2,000,000,000.
+
+What is the minimum total distance Bessie must travel to deliver
+both apples by starting at pasture PB (1 <= PB <= P) and visiting
+pastures PA1 (1 <= PA1 <= P) and PA2 (1 <= PA2 <= P) in any order.
+All three of these pastures are distinct, of course.
+
+Consider this map of bracketed pasture numbers and cowpaths with
+distances:
+
+                3        2       2
+           [1]-----[2]------[3]-----[4]
+             \     / \              /
+             7\   /4  \3           /2
+               \ /     \          /
+               [5]-----[6]------[7]
+                    1       2
+
+If Bessie starts at pasture [5] and delivers apples to pastures [1]
+and [4], her best path is:
+
+      5 -> 6-> 7 -> 4* -> 3 -> 2 -> 1*
+
+with a total distance of 12.
+
+PROBLEM NAME: apple
+
+INPUT FORMAT:
+
+* Line 1: Line 1 contains five space-separated integers: C, P, PB,
+        PA1, and PA2
+
+* Lines 2..C+1: Line i+1 describes cowpath i by naming two pastures it
+        connects and the distance between them: P1_i, P2_i, D_i
+
+SAMPLE INPUT (file apple.in):
+
+9 7 5 1 4
+5 1 7
+6 7 2
+4 7 2
+5 6 1
+5 2 4
+4 3 2
+1 2 3
+3 2 2
+2 6 3
+
+OUTPUT FORMAT:
+
+* Line 1: The shortest distance Bessie must travel to deliver both
+        apples
+
+SAMPLE OUTPUT (file apple.out):
+
+12
+
+**********************************************************************
+
+Problem 7: Treasure Chest [Louis Wasserman, a classic, 2010]
+
+Bessie and Bonnie have found a treasure chest full of marvelous
+gold coins! Being cows, though, they can't just walk into a store and
+buy stuff, so instead they decide to have some fun with the coins.
+
+The N (1 <= N <= 5,000) coins, each with some value C_i (1 <= C_i
+<= 5,000) are placed in a straight line. Bessie and Bonnie take turns,
+and for each cow's turn, she takes exactly one coin off of either
+the left end or the right end of the line. The game ends when there
+are no coins left.
+
+Bessie and Bonnie are each trying to get as much wealth as possible for
+themselves. Bessie goes first. Help her figure out the maximum
+value she can win, assuming that both cows play optimally.
+
+Consider a game in which four coins are lined up with these values:
+
+            30  25  10  35
+
+Consider this game sequence:
+
+                           Bessie    Bonnie       New Coin
+Player   Side   CoinValue   Total     Total         Line
+Bessie   Right     35        35         0       30  25  10
+Bonnie   Left      30        35        30         25  10
+Bessie   Left      25        60        30           10
+Bonnie   Right     10        60        40           --
+
+This is the best game Bessie can play.
+
+PROBLEM NAME: treasure
+
+INPUT FORMAT:
+
+* Line 1: A single integer: N
+
+* Lines 2..N+1: Line i+1 contains a single integer: C_i
+
+SAMPLE INPUT (file treasure.in):
+
+4
+30
+25
+10
+35
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer, which is the greatest total value Bessie
+        can win if both cows play optimally.
+
+SAMPLE OUTPUT (file treasure.out):
+
+60
+
+**********************************************************************
+
+Problem 8: The Trough Game [Louis Wasserman, 2010]
+
+Farmer John and Bessie are playing games again. This one has to do
+with troughs of water.
+
+Farmer John has hidden N (1 <= N <= 20) troughs behind the barn,
+and has filled some of them with food. Bessie has asked M (1 <= M
+<= 100) questions of the form, "How many troughs from this list
+(which she recites) are filled?".
+
+Bessie needs your help to deduce which troughs are actually filled.
+
+Consider an example with four troughs where Bessie has asked these
+questions (and received the indicated answers):
+
+    1) "How many of these troughs are filled: trough 1"
+       -->  1 trough is filled
+
+    2) "How many of these troughs are filled: troughs 2 and 3"
+       -->  1 trough is filled
+
+    3) "How many of these troughs are filled: troughs 1 and 4"
+       -->  1 trough is filled
+
+    4) "How many of these troughs are filled: troughs 3 and 4"
+       -->  1 trough is filled
+
+From question 1, we know trough 1 is filled.
+From question 3, we then know trough 4 is empty.
+From question 4, we then know that trough 3 is filled.
+From question 2, we then know that trough 2 is empty.
+
+PROBLEM NAME: trough
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: N and M
+
+* Lines 2..M+1: A subset of troughs, specified as a sequence of
+        contiguous N 0's and 1's, followed by a single integer that is
+        the number of troughs in the specified subset that are filled.
+
+SAMPLE INPUT (file trough.in):
+
+4 4
+1000 1
+0110 1
+1001 1
+0011 1
+
+OUTPUT FORMAT:
+
+* Line 1: A single line with:
+
+  * The string "IMPOSSIBLE" if there is no possible set of filled troughs 
+    compatible with Farmer John's answers.
+
+  * The string "NOT UNIQUE" if Bessie cannot determine from the given data 
+    exactly what troughs are filled.
+
+  * Otherwise, a sequence of contiguous N 0's and 1's specifying
+    which troughs are filled.
+
+SAMPLE OUTPUT (file trough.out):
+
+1010
+
+**********************************************************************

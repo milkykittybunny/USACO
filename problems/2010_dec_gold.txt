@@ -1,0 +1,245 @@
+**********************************************************************
+                           GOLD PROBLEMS
+**********************************************************************
+                  Three problems numbered 1 through 3
+**********************************************************************
+
+Problem 1: Cow Calisthenics [Michael Cohen, 2010]
+
+Farmer John continues his never-ending quest to keep the cows fit
+by having them exercise on various cow paths that run through the
+pastures. These cow paths can be represented as a set of vertices
+connected with bidirectional edges so that each pair of vertices
+has exactly one simple path between them. In the abstract, their
+layout bears a remarkable resemblance to a tree. Surprisingly, each
+edge (as it winds its way through the pastures) has the same length.
+
+For any given set of cow paths, the canny cows calculate the longest
+possible distance between any pair of vertices on the set of cowpaths
+and call it the pathlength. If they think this pathlength is too
+large, they simply refuse to exercise at all.
+
+Farmer John has mapped the paths and found V (2 <= V <= 100,000)
+vertices, conveniently numbered from 1..V. In order to make shorter
+cowpaths, he can block the path between any two vertices, thus
+creating more sets of cow paths while reducing the pathlength of
+both cowpath sets.
+
+Starting from a single completely connected set of paths (which
+have the properties of a tree), FJ can block S (1 <= S <= V-1)
+paths, creating S+1 sets of paths. Your goal is to compute the best
+paths he can create so that the largest pathlength of all those
+sets is minimized.
+
+Farmer John has a list of all V-1 edges in his tree, each described
+by the two vertices A_i (1 <= A_i <= V) and B_i (1 <= B_i <= V; A_i
+!= B_i) that it connects.
+
+Consider this rather linear cowpath set (a tree with 7 vertices):
+
+                   1---2---3---4---5---6---7
+
+If FJ can block two paths, he might choose them to make a map like
+this:
+           1---2 | 3---4 | 5---6---7
+
+where the longest pathlength is 2, which would be the answer in
+this case. He can do no better than this.
+
+TIME LIMIT: 2 seconds
+
+MEMORY LIMIT: 32 MB
+
+PROBLEM NAME: exercise
+
+INPUT FORMAT:
+
+* Line 1: Two space separated integers: V and S
+
+* Lines 2..V: Two space separated integers: A_i and B_i
+
+SAMPLE INPUT (file exercise.in):
+
+7 2
+6 7
+3 4
+6 5
+1 2
+3 2
+4 5
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer that is the best maximum pathlength FJ can
+        achieve with S blocks
+
+SAMPLE OUTPUT (file exercise.out):
+
+2
+
+**********************************************************************
+
+Problem 2: Big Macs Around the World [Sherry Wu, a classic, 2010]
+
+Bessie is studying her favorite subject, Macroeconomics, in cowllege.
+For her final project, she will be presenting research on exchange
+rates between countries around the world.
+
+In order to make her presentation more lively, she would like to
+show the relative prices of Big Macs around the world, despite their
+rather unsavory contents. To illustrate, suppose that Bessie would
+like to find smallest value of a Big Mac in a country given its
+value in some initial country and exchange rates from which other
+country's values can be calculated (as illustrated below):
+
+* A Big Mac is worth 60 dollars in the United States
+
+* The exchange rate from US dollars to Canadian dollars is 0.2
+  Canadian dollars per US dollar
+
+* The exchange rate from US dollars to British Pounds is 5.00 British
+  Pounds per US Dollar
+
+* The exchange rate from British Pounds to Canadian dollars is 0.5
+  Canadian dollars per British Pound
+
+* The exchange rate between Canadian dollars to US dollars is 5.00
+  US dollars per Canadian dollar
+
+and Bessie would like to find the smallest possible value of a Big
+Mac in Canada that can be obtained by exchanging currencies. There
+are two ways:
+
+* Going from US dollars directly to Canada dollars would yield a
+  burger worth 60.00 US dollars * 0.2 Canadian dollars / US dollar
+  = 12.00 Canadian dollars
+
+* Going from US dollars to British Pounds to Canadian dollars would
+  yield a burger worth 60.00 US$ * 5.00 GBP / 1 US$ * 0.5 C$ / 1
+  GBP = 150.00 C$ (Canadian dollars).
+
+Bessie would choose the former option, since she would much rather
+pay 12.00 Canadian dollars instead of 150.00 Canadian dollars for
+a Big Mac in Canada.
+
+Bessie has N (1 <= N <= 2,000) countries conveniently labeled 1 to
+N that she would like to consider along with a list of M (1 <= M
+<= 25,000) exchange rates e_ij (0.1 < e_ij <= 10), each between
+countries i and j (1 <= i <= N; 1 <= j <= N).
+
+Given the value V (1 <= V <= 1,000,000,000,000), which is not
+necessarily an integer, of the Big Mac in her starting country A
+(1 <= A <= N), help her find the smallest possible value of a Big
+Mac in country B (1 <= B <= N; B != A) after a series of currency
+conversions. If there is no minimum, output 0.
+
+It is guaranteed that the answer is, if not 0, between 1 and 10^15.
+
+It is also guaranteed that, for any country's currency, it is
+possible to get to any other country's currency.
+
+TIME LIMIT: 2.0 seconds
+
+PROBLEM NAME: bigmac
+
+INPUT FORMAT:
+
+* Line 1: Five space-separated numbers: N, M, V, A, B
+
+* Lines 2..M+1: Three space-separated numbers: i, j, e_ij
+
+SAMPLE INPUT (file bigmac.in):
+
+3 4 60 1 2
+1 2 0.2
+1 3 5
+3 2 0.5
+2 1 5
+
+OUTPUT FORMAT:
+
+* Line 1: A single positive number, the price of the Big Mac, with
+        absolute or relative error at most 10^-6. If there is no
+        minimum, output 0.
+
+SAMPLE OUTPUT (file bigmac.out):
+
+12.00
+
+**********************************************************************
+
+Problem 3: Threatening Letter [J. Kuipers, 2002]
+
+FJ has had a terrible fight with his neighbor and wants to send him
+a nasty letter, but wants to remain anonymous. As so many before
+him have done, he plans to cut out printed letters and paste them
+onto a sheet of paper. He has an infinite number of the most recent
+issue of the Moo York Times that has N (1 <= N <= 50,000) uppercase
+letters laid out in a long string (though read in as a series of
+shorter strings). Likewise, he has a message he'd like to compose
+that is a single long string of letters but that is read in as a
+set of shorter strings.
+
+Being lazy, he wants to make the smallest possible number of cuts.
+FJ has a really great set of scissors that enables him to remove
+any single-line snippet from the Moo York Times with one cut. He
+notices that he can cut entire words or phrases with a single cut,
+thus reducing his total number of cuts.
+
+What is the minimum amount of cuts he has to make to construct his
+letter of M (1 <= M <= 50,000) letters?
+
+It is guaranteed that it is possible for FJ to complete his task.
+
+Consider a 38 letter Moo York Times:
+
+        THEQUICKBROWNFOXDO
+        GJUMPSOVERTHELAZYDOG
+
+from which FJ wants to construct a 9 letter message:
+
+        FOXDOG
+        DOG
+
+These input lines represent a pair of strings:
+
+        THEQUICKBROWNFOXDOGJUMPSOVERTHELAZYDOG
+        FOXDOGDOG
+
+Since "FOXDOG" exists in the newspaper, FJ can cut this piece out
+and then get the last "DOG" by cutting out either instance of the
+word "DOG".
+
+Thus, he requires but two cuts.
+
+PROBLEM NAME: letter
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: N and M
+
+* Lines 2..?: N letters laid out on several input lines; this is the
+        text of the one copy of the Moo York Times. Each line will
+        have no more than 80 characters.
+
+* Lines ?..?: M letters that are the text of FJ's letter. Each line
+        will have no more than 80 characters.
+
+SAMPLE INPUT (file letter.in):
+
+38 9
+THEQUICKBROWNFOXDO
+GJUMPSOVERTHELAZYDOG
+FOXDOG
+DOG
+
+OUTPUT FORMAT:
+
+* Line 1: The minimum number of cuts FJ has to make to create his
+        message
+
+SAMPLE OUTPUT (file letter.out):
+
+2
+
+**********************************************************************
