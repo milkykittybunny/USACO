@@ -1,15 +1,66 @@
-#include <iostream>
-#include <vector>
-#include <math.h>
-#include <map>
-#include <fstream>
-
+//C++ template for all USACO codes
+#include <bits/stdc++.h>
 using namespace std;
 
-struct block {
-    string front;
-    string back;
-};
+int main() {
+    ifstream fIn("blocks.in");
+    ofstream fOut("blocks.out");
+
+    // solution comes here
+    int n;
+    fIn >> n;
+    vector<pair<string, string> > boards(n);
+    map<char, int> letters;
+
+    for (int i = 0; i < n; i++) {
+        fIn >> boards[i].first >> boards[i].second;
+        map<char, int> firstDict;
+        for (int j = 0; j < boards[i].first.size(); j++) {
+            char key = boards[i].first[j];
+            if (firstDict.count(key) == 0) {
+                firstDict[key] = 1;
+            }
+            else {
+                firstDict[key]++;
+            }
+        }
+        map<char,int> secondDict;
+        for (int j = 0; j < boards[i].second.size(); j++) {
+            char key = boards[i].second[j];
+            if (secondDict.count(key) == 0) {
+                secondDict[key] = 1;
+            }
+            else {
+                secondDict[key]++;
+            }
+        }
+        for (char c = 'a'; c <= 'z'; c++) {
+            int first = firstDict.count(c);
+            int second = secondDict.count(c);
+            if (first != 0) {
+                first = firstDict[c];
+            }
+            if (second != 0) {
+                second = secondDict[c];
+            }
+            if (letters.count(c) != 0) {
+                letters[c] += max(first, second);
+            }
+            else {
+                letters[c] = max(first,second);
+            }
+        }
+    }
+
+    for (char c = 'a'; c <= 'z'; c++) {
+        fOut << letters[c] << endl;
+    }
+
+
+
+    fIn.close();
+    fOut.close();
+}
 
 
 
@@ -32,6 +83,7 @@ string make_combinations(vector<block> blocks, vector<string> &combinations, int
 
 // generates a complete set using binary for loops
 // generate alphabet
+/*
 void create_alphabet(vector<block> blocks, vector<int> &alphabet) {
     int length = blocks.size();
 
@@ -73,3 +125,5 @@ int main() {
         fOut << alphabet[i] << endl;
     }
 }
+
+*/
