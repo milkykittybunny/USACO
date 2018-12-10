@@ -1,4 +1,53 @@
-#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+struct cow {
+    int arrive;
+    int question;
+};
+
+bool sorting(cow a, cow b) {
+    return a.arrive < b.arrive;
+}
+
+int main() {
+    ifstream fIn("cowqueue.in");
+    ofstream fOut("cowqueue.out");
+
+    // solution comes here
+    int n;
+    fIn >> n;
+
+    vector<cow> cowtimes(n);
+
+    for (int i = 0; i < n; i++) {
+        fIn >> cowtimes[i].arrive >> cowtimes[i].question;
+    }
+
+    sort(cowtimes.begin(), cowtimes.end(), sorting);
+
+    int currenttime = 0;
+
+    int i = 0;
+    while (i < n) {
+        if (cowtimes[i].arrive == currenttime || cowtimes[i].arrive < currenttime) {
+            currenttime = currenttime + cowtimes[i].question;
+            i++;
+        }
+        else if (cowtimes[i].arrive > currenttime) {
+            currenttime = cowtimes[i].arrive + cowtimes[i].question;
+            i++;
+        }
+    }
+
+    fOut << currenttime;
+
+    fIn.close();
+    fOut.close();
+}
+
+/*#include <iostream>
 #include <fstream>
 #include <vector>
 #include <algorithm>
@@ -46,4 +95,4 @@ int main() {
     fIn.close();
     fOut.close();
     return 0;
-}
+}*/
