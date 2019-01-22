@@ -134,6 +134,8 @@ for (auto x : m) {
 
 //sort vector , list
 sort(v.begin(), v.end());
+//reverse sort
+reverse(v.begin(), v.end());
 
 bool less_than(bale a, bale b) {
     return a.position < b.position;
